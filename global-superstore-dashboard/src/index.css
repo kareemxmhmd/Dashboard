@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #121212;
+  --color-dark-surface: #1E1E2F;
+  --color-neon-cyan: #00f3ff;
+  --color-neon-purple: #9d00ff;
+  --color-neon-pink: #ff00ea;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-dark);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-dark-surface);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neon-purple);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(30, 30, 47, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 8px 32px rgba(157, 0, 255, 0.15);
+    border: 1px solid rgba(157, 0, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+  }
+}
+
+/* Background effects */
+.bg-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
